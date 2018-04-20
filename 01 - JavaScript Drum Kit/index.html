@@ -59,10 +59,26 @@
 
 <script>
    window.addEventListener("keydown", keyHandler);
- function keyHandler(event){
-   let keys = document.getElementsByClassName("key");
-   console.log(event.keyCode)
- }
+    function keyHandler({ keyCode }) {
+      let keyElements = document.getElementsByClassName("key");
+      let [correctKey] = Array.prototype.filter.call(keyElements, (element => element.getAttribute("data-key") == keyCode));
+      if (correctKey) {
+        correctKey.classList.add("playing");
+        playSound(keyCode)
+        setTimeout(() => {
+
+          correctKey.classList.remove("playing");
+        }, 100);
+      }
+    }
+
+    function playSound(keyCode) {
+      let sounds = document.getElementsByTagName("audio");
+      let [correctSound] = Array.prototype.filter.call(sounds, (element => element.getAttribute("data-key") == keyCode));
+      correctSound.play()
+
+    }
+    
 </script>
 
 
