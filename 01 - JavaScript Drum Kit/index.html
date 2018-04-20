@@ -60,25 +60,23 @@
 <script>
    window.addEventListener("keydown", keyHandler);
     function keyHandler({ keyCode }) {
-      let keyElements = document.getElementsByClassName("key");
-      let [correctKey] = Array.prototype.filter.call(keyElements, (element => element.getAttribute("data-key") == keyCode));
+      let correctKey = getElement(document.getElementsByClassName("key"), keyCode);
       if (correctKey) {
         correctKey.classList.add("playing");
         playSound(keyCode)
         setTimeout(() => {
-
           correctKey.classList.remove("playing");
         }, 100);
       }
     }
 
     function playSound(keyCode) {
-      let sounds = document.getElementsByTagName("audio");
-      let [correctSound] = Array.prototype.filter.call(sounds, (element => element.getAttribute("data-key") == keyCode));
-      correctSound.play()
-
+     getElement(document.getElementsByTagName("audio"), keyCode).play()
     }
-    
+
+    function getElement(collection, keyCode){
+      return Array.prototype.filter.call(collection, (element => element.getAttribute("data-key") == keyCode))[0];
+    }
 </script>
 
 
