@@ -60,13 +60,13 @@
 <script>
    window.addEventListener("keydown",({ keyCode })=> {
       let correctKey = document.querySelector(`div[data-key="${keyCode}"]`);
-      if (correctKey) {
+      if (!correctKey)return
         correctKey.classList.add("playing");
         document.querySelector(`audio[data-key="${keyCode}"]`).play()
         setTimeout(() => {
           correctKey.classList.remove("playing");
         }, 100);
-      }
+      
    });
 </script>
 
