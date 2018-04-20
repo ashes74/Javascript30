@@ -58,9 +58,16 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+ window.addEventListener("keydown", keyHandler);
+ function keyHandler(event){
+   let key = document.getElementsByClassName("key")
+   console.log(event.keyCode, key)
+ }
 
 </script>
 
 
 </body>
 </html>
+
+<!-- keycode.info: awesome place to see keycode for keyboard keys -->
