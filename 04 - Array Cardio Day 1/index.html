@@ -65,10 +65,12 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
-    let nameSort=inventors.sort((a,b)=>{
-      return (a.last.toUpperCase()<b.last.toUpperCase()) ? -1:1; 
+    let nameSort=people.sort((a,b)=>{
+      const [aLast, aFirst]=a.split(",");
+      const [bLast, bFirst]=b.split(",");
+      return (aLast.toUpperCase()<bLast.toUpperCase()) ? -1:1; 
       });
-      console.table(nameSort);
+      console.log(nameSort);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
