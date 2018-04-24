@@ -69,11 +69,11 @@
       const {first, last} = inventor
       console.log(last, first);
     }
+
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-    let count = {};
-    data.reduce((prev, curr)=>{
+    let count = data.reduce((prev, curr)=>{
         return {
           ...prev,
           [curr]: prev[curr]+1||1
