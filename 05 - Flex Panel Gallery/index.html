@@ -78,6 +78,7 @@
 
     .panel.open {
       font-size:40px;
+      flex: 5;
     }
 
     .panel > *:first-child{ transform: translateY(-100%);}
@@ -117,7 +118,21 @@
   </div>
 
   <script>
+    const  panels = document.querySelectorAll('.panel');
 
+    function toggleOpen() {
+      this.classList.toggle('open');
+
+    }
+    function toggleActive(e) {
+      console.log(e.propertyName);
+      
+      e.propertyName.includes("flex")&& this.classList.toggle('open-active');
+
+    }
+
+    panels.forEach(panel=>panel.addEventListener('click', toggleOpen));
+    panels.forEach(panel=>panel.addEventListener('transitionend', toggleActive));
   </script>
 
 
