@@ -53,11 +53,57 @@
     
 
     // Grouping together
+    const apps =[
+      {
+        name: "Path Paradox",
+        year: "2016",
+        role: "Programmer"
+      },
+      {
+        name: "include.io",
+        year: "2016",
+        role: "Technical Product Manager"
+      },
+      {
+        name: "MissDirection",
+        year: "2016",
+        role: "Programmer"
+      }
+    ]
+
+    apps.forEach(app=>{
+      console.groupCollapsed(`${app.name}`);
+      console.log(`This is the ${app.name} app`);
+      console.log(`I built it in ${app.year}`);
+      console.log(`I was a ${app.role} on this project`);
+      console.groupEnd();      
+    })
 
     // counting
+    console.count(`Lori`)
+    console.count(`Nicole`)
+    console.count(`Nicole`)
+    console.count(`Lori`)
+    console.count(`Nicole`)
+    console.count(`Nicole`)
+    console.count(`Nicole`)
+    console.count(`Lori`)
+    console.count(`Lori`)
+    console.count(`Lori`)
+    console.count(`Nicole`)
+    console.count(`Nicole`)
+    console.count(`Lori`)
+    console.count(`Nicole`)
+    console.count(`Lori`)
 
     // timing
-
+    console.time(`tryout`)
+      fetch(`https://api.github.com/users/ashes74`)
+      .then(data=>data.json())
+      .then(data=>{
+        console.timeEnd(`tryout`);
+        console.log(data);
+      })
   </script>
 </body>
 </html>
